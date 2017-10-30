@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Fundamentals II</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function magic_multiply(x, y) {
+            if(x.constructor === String ){
+                if ((y.constructor === Number ) && (y !== Math.floor(y)) )
+                {
+                    console.log(`Error: You can not multiply using the first value as the string '` + x + ` when the second value is NOT an integer.'`);
+                } else {
+                    var RtnValue = "";
+                    for (let w = 0; w < Math.abs(y); w++ )
+                    {
+                        RtnValue = RtnValue + x;
+                    }
+                    console.log(RtnValue);
+                }
+            }
+            else if(y.constructor === String ){
+                console.log(`Error: You can not multiply using the second value as the string '` + y + `'.`);
+            }
+            else if(x.constructor === Array){
+                for (let k = 0; k < x.length; k++)
+                {
+                    x[k] *= y;
+                }
+                return x;
+            }
+            else
+            {
+                return x * y;
+            }
+            return -1;
+        }
+        console.log(magic_multiply(5, 2));
+        console.log(magic_multiply(0, 0));
+        console.log(magic_multiply([1, 2, 3], 2));
+        console.log(magic_multiply(7, "three"));
+        console.log(magic_multiply("four", 10));
+    </script>
+</body>
+
+</html>
